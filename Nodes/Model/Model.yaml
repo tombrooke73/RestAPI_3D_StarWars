@@ -1,0 +1,8 @@
+Name: Model
+Type: FolderType
+Children:
+- File: SpaceShips/SpaceShips.yaml
+- Name: Class
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"

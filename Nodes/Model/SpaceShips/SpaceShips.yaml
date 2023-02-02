@@ -1,0 +1,25 @@
+Name: SpaceShips
+Id: g=7a1210a562adefc45a765c5df26e4d7c
+Type: FolderType
+Children:
+- Name: DeathStar 2
+  Id: g=7324f2b90c75517d4a38e89ba08cf310
+  Type: BaseDataVariableType
+  DataType: Int32
+  Value: 9
+- Name: Millenium Falcon
+  Type: BaseDataVariableType
+  DataType: Int32
+  Value: 10
+- Name: Tie Interceptor
+  Type: BaseDataVariableType
+  DataType: Int32
+  Value: 13
+- Name: X Wing
+  Type: BaseDataVariableType
+  DataType: Int32
+  Value: 12
+- Name: Star destroyer
+  Type: BaseDataVariableType
+  DataType: Int32
+  Value: 3

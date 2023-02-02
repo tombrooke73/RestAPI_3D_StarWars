@@ -1,0 +1,18 @@
+Name: NetLogic
+Type: FolderType
+Children:
+- Name: StarWarsApi
+  Type: NetLogic
+  Children:
+  - Name: BehaviourStartPriority
+    Type: BehaviourStartPriorityVariableType
+    DataType: Byte
+    Value: 180
+  - Name: Id
+    Type: BaseDataVariableType
+    DataType: Int32
+    Value: 9
+  - Class: Method
+    Name: GetStarWarsShips
+  - Class: Method
+    Name: Method2
