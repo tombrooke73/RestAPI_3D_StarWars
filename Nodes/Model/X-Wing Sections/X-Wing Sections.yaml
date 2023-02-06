@@ -1,0 +1,16 @@
+Name: 'X-Wing Sections'
+Id: g=36fb6b670474b379a7b4f82153268c00
+Type: FolderType
+Children:
+- Name: Cabin
+  Type: BaseDataVariableType
+  DataType: Int32
+  Value: 0
+- Name: BottomWings
+  Type: BaseDataVariableType
+  DataType: Int32
+  Value: 0
+- Name: TopWings
+  Type: BaseDataVariableType
+  DataType: Int32
+  Value: 0

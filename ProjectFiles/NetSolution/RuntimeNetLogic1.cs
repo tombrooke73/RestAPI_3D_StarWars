@@ -12,6 +12,7 @@ using FTOptix.CoreBase;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.IO;
+using FTOptix.WebUI;
 #endregion
 
 public class RuntimeNetLogic1 : BaseNetLogic
@@ -42,6 +43,12 @@ public class RuntimeNetLogic1 : BaseNetLogic
         Load3D(id);
     }
 
+    [ExportMethod]
+    public void Highlight()
+    {
+        ColorChange();
+    }
+
     private void SetLabels(string classValue, string manufacturerValue, string costValue, string hyperdriveValue)
     {
         string value = classValue.Replace("\"", "");
@@ -49,6 +56,43 @@ public class RuntimeNetLogic1 : BaseNetLogic
         manufacturerLabel.Text = manufacturerValue.Replace("\"", "");
         costLabel.Text = costValue.Replace("\"", "");
         hyperdriveLabel.Text = hyperdriveValue.Replace("\"", "");
+    }
+
+    private void ColorChange()
+    {
+        Owner.Get<WebBrowser>("WebBrowser").Visible = false;
+        
+        // Get template name and create destination path
+        string templatePath = @"C:\3d Test\Template.html";
+        string filePath = @"C:\3d Test\index.html";
+
+        // Read template page content
+        string text = File.ReadAllText(templatePath);
+        text = text.Replace("$File", "x-wing2");
+        string section = InformationModel.Get(Owner.Find<ComboBox>("ComboBox2").SelectedItem).BrowseName;
+        switch (section)
+        {
+            case "TopWings":
+                text = text.Replace("$Section", "Material.006");
+                break;
+            case "BottomWings":
+                text = text.Replace("$Section", "Material.007");
+                break;
+            case "Cabin":
+                text = text.Replace("$Section", "Material.004");
+                break;
+            default:
+                break;
+        }
+
+        text = text.Replace("$Color", "blue");
+
+        // Write to file
+        File.WriteAllText(filePath, text);
+
+        // Refresh WebBrowser page
+        Owner.Get<WebBrowser>("WebBrowser").Refresh();
+        Owner.Get<WebBrowser>("WebBrowser").Visible = true;
     }
 
     private void Load3D(int id)
@@ -68,19 +112,19 @@ public class RuntimeNetLogic1 : BaseNetLogic
         switch (id)
         {
             case 9:
-                text = text.Replace("$file", "deathstar");
+                text = text.Replace("$File", "deathstar");
                 break;
             case 10:
-                text = text.Replace("$file", "milleniumfalcon");
+                text = text.Replace("$File", "milleniumfalcon");
                 break;
             case 3:
-                text = text.Replace("$file", "star-destroyer");
+                text = text.Replace("$File", "star-destroyer");
                 break;
             case 13:
-                text = text.Replace("$file", "tie-interceptor");
+                text = text.Replace("$File", "tie-interceptor");
                 break;
             case 12:
-                text = text.Replace("$file", "x-wing");
+                text = text.Replace("$File", "x-wing");
                 break;
             default:
                 break;

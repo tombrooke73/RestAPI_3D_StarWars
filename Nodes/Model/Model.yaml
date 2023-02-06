@@ -6,3 +6,4 @@ Children:
   Type: BaseDataVariableType
   DataType: String
   Value: "0"
+- File: 'X-Wing Sections/X-Wing Sections.yaml'

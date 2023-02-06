@@ -11,6 +11,7 @@ using FTOptix.CoreBase;
 using FTOptix.NetLogic;
 using System.Net.Http;
 using Newtonsoft.Json;
+using FTOptix.WebUI;
 #endregion
 
 public class StarWarsApi : BaseNetLogic
